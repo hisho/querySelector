@@ -1,1 +1,10 @@
-# querySelector
+# QuerySelector
+
+# INSTALLATION
+
+# USAGE
+
+# API
+
+## all
+## exists
