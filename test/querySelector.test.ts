@@ -1,4 +1,4 @@
-import {QuerySelector} from "../src";
+import {querySelector} from "../src";
 
 describe('QuerySelector', (): void => {
   describe('constructor', (): void => {
@@ -6,7 +6,7 @@ describe('QuerySelector', (): void => {
       document.body.innerHTML = `
       <div>hello</div>
       `;
-      const DOM = new QuerySelector('div');
+      const DOM = querySelector('div');
       expect(DOM).toBeDefined();
       expect(DOM.all).toBeDefined();
       expect(DOM.exists).toBeDefined();
@@ -16,7 +16,7 @@ describe('QuerySelector', (): void => {
       document.body.innerHTML = `
       <div>hello</div>
       `;
-      const DOM = new QuerySelector('div');
+      const DOM = querySelector('div');
       expect(DOM.all).toEqual(Array.from(document.querySelectorAll('div')));
       expect(DOM.all.length).toEqual(1);
       DOM.all.forEach((item) => {
@@ -28,7 +28,7 @@ describe('QuerySelector', (): void => {
       document.body.innerHTML = `
       <div>hello</div>
       `;
-      const DOM = new QuerySelector('di');
+      const DOM = querySelector('di');
       expect(DOM.all).toEqual(Array.from(document.querySelectorAll('di')));
       expect(DOM.all.length).toEqual(0);
       DOM.all.forEach((item) => {
@@ -41,7 +41,7 @@ describe('QuerySelector', (): void => {
       <div>hello</div>
       <div>hello</div>
       `;
-      const DOM = new QuerySelector('div');
+      const DOM = querySelector('div');
       expect(DOM.all).toEqual(Array.from(document.querySelectorAll('div')));
       expect(DOM.all.length).toEqual(2);
       DOM.all.forEach((item) => {
@@ -56,9 +56,9 @@ describe('QuerySelector', (): void => {
       <div id="test">hello</div>
       <div>hello</div>
       `;
-      const DOM1 = new QuerySelector('div');
-      const DOM2 = new QuerySelector('#test');
-      const DOM3 = new QuerySelector('#no exist');
+      const DOM1 = querySelector('div');
+      const DOM2 = querySelector('#test');
+      const DOM3 = querySelector('#no exist');
       expect(Array.isArray(DOM1.all)).toEqual(true);
       expect(DOM1.all.length).toEqual(2);
       expect(Array.isArray(DOM2.all)).toEqual(true);
@@ -74,8 +74,8 @@ describe('QuerySelector', (): void => {
       <div id="test">hello</div>
       <div>hello</div>
       `;
-      const DOM1 = new QuerySelector('div');
-      const DOM2 = new QuerySelector('#test');
+      const DOM1 = querySelector('div');
+      const DOM2 = querySelector('#test');
       expect(DOM1.exists).toEqual(true);
       expect(DOM2.exists).toEqual(true);
     });
@@ -84,8 +84,8 @@ describe('QuerySelector', (): void => {
       document.body.innerHTML = `
       <div>hello</div>
       `;
-      const DOM1 = new QuerySelector('di');
-      const DOM2 = new QuerySelector('#test');
+      const DOM1 = querySelector('di');
+      const DOM2 = querySelector('#test');
       expect(DOM1.exists).toEqual(false);
       expect(DOM2.exists).toEqual(false);
     });
