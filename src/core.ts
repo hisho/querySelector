@@ -1,4 +1,4 @@
-type querySelectorAllQuery = string | NodeListOf<Element> | HTMLElement | HTMLElement[] | null
+import {querySelectorAllQuery} from "./types";
 
 export class QuerySelector {
   private readonly query: HTMLElement[];

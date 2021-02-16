@@ -1,1 +1,2 @@
-export * from "./querySelector";
+export * from "./core";
+export * from "./types";
